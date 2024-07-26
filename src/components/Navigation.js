@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { memo } from'react';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -15,4 +16,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default memo(Navigation);

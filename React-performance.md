@@ -3,7 +3,12 @@
 2. When props rececives changes then component re-renders
 3. When Parent re-render by default then child component re-renders
 
-References: https://www.youtube.com/watch?v=3cYtqrNUiVw&ab_channel=JustinKim
+References: 
+https://www.youtube.com/watch?v=3cYtqrNUiVw&ab_channel=JustinKim
+https://www.youtube.com/watch?v=DEPwA3mv_R8&ab_channel=JackHerrington
+https://www.youtube.com/watch?v=tbBILjDgXb4&ab_channel=SoftwareDeveloperDiaries
+
+Clean code technique: https://www.youtube.com/watch?v=XD2TryNMMoQ&list=PL5Lsd0YA4OMGX-uul2qKTa5O_KxgsUi6i&index=4&ab_channel=SoftwareDeveloperDiaries
 
 ## Memoization memo()
 It is speed optimization technique to use for component cached version of components output all the time. 

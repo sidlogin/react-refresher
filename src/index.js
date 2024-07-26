@@ -14,13 +14,13 @@ const Memo = lazy(() => import('./components/Memo/Memo'));
 root.render(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/fetchData" element={<FetchData />} />
-        <Route path="/memo" element={<Memo />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/" element={<App />}>
+          <Route path="/fetchData" element={<FetchData />} />
+          <Route path="/memo" element={<Memo />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Route>
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </BrowserRouter>
-  // <React.StrictMode>
-  // </React.StrictMode>
 );
