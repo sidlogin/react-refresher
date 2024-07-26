@@ -1,3 +1,6 @@
 .fetchData {
-    
+    display: flex;
+    flex-direction: column;
+    max-width: 56rem;
+    margin: auto;
 }

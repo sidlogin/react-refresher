@@ -16,19 +16,34 @@ Create new react application from scratch using webpack 5
 2. Create the `.babelrc` configuration file, this tells babel transpiler to what preset and plugins to use to transpile our code
 
 ### React Router
+Reference: https://www.youtube.com/watch?v=JU6sl_yyZqs&ab_channel=WebDevSimplified
 1. First install the React router npm package: npm i react-router-dom;
 2. Add the below code to your index.js or App.js dependeing on your application structure.
+
+## Lazyloading or code splitting
+
+App,js
 ```
+<Suspense fallback={<h1>Loading...</h1>}>
+  <Outlet />
+</Suspense>
+```
+Router configuration
+```
+const FetchData = lazy(() => import('./components/FetchData/FetchData'));
+const Auth = lazy(() => import('./components/Auth/Auth'));
+const Memo = lazy(() => import('./components/Memo/Memo'));
+
 <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/about" element={<About />} >
-        <Route path="history" element={<History />}
-        />
-      </Route>
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<h1>404</h1>} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/fetchData" element={<FetchData />} />
+          <Route path="/memo" element={<Memo />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Route>
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
 </BrowserRouter>
 ```
 
