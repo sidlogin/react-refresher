@@ -15,6 +15,23 @@ Create new react application from scratch using webpack 5
 1. To run the React with `ES6` module which supports `jsx` syntax. Install the following node packages `npm i --save-dev @babel/core @babel/preset-env @babel/preset-react @babel/cli`
 2. Create the `.babelrc` configuration file, this tells babel transpiler to what preset and plugins to use to transpile our code
 
+### React Router
+1. First install the React router npm package: npm i react-router-dom;
+2. Add the below code to your index.js or App.js dependeing on your application structure.
+```
+<BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/about" element={<About />} >
+        <Route path="history" element={<History />}
+        />
+      </Route>
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<h1>404</h1>} />
+    </Routes>
+</BrowserRouter>
+```
+
 ### React Hooks
 1. useState(); - Mainly use to create state vailable for your react components.
 2. useEffect(() => {}, []); - Mainly use to manage side-effects that are related to component rendering.
