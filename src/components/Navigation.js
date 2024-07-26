@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import './Navigation.css';
 
 const Navigation = () => {
+    console.log('navigation');
     return (
         <>
             <div className="links">

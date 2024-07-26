@@ -1,16 +1,16 @@
-import React, { Suspense } from'react';
+import React, { Suspense, memo } from'react';
 import { Outlet } from'react-router-dom';
 import './App.css';
 import Navigation from './components/Navigation';
 
-// const NavigationMemo = memo(Navigation);
+const NavigationMemo = memo(Navigation);
 function App() {
   return (
     <div className="App">
-        <Navigation />
       <header className="App-header">
+        <NavigationMemo />
       </header>
-      <Suspense fallback={(<div className='loader'>Loading...</div>)}>
+      <Suspense fallback="Loading...">
         <Outlet />
       </Suspense>
     </div>
