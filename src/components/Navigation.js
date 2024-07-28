@@ -11,6 +11,7 @@ const Navigation = () => {
                 <Link to="/fetchData">Fetch Data</Link>
                 <Link to="/memo">Memo</Link>
                 <Link to="/todo">Todo Form</Link>
+                <Link to="/search">Search</Link>
             </div>
         </>
     )

@@ -1,0 +1,14 @@
+.list-item {
+    width: 200px;
+    border: 1px solid #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem
+}
+
+.list-item p {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: bold;
+}
