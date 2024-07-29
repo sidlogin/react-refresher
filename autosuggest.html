@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Suggest</title>
+</head>
+<style type="text/css">
+    .container {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .form-box {
+        width: 400px;
+        margin: auto;
+        border: 1px solid #c6c6c6;
+        padding: 0;
+        box-shadow: #c6c6c6;
+    }
+
+    .form-box input {
+        width: 95%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .suggestions {
+        width: 400px;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #c6c6c6;
+        display: none;
+    }
+
+    .suggestions ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-family: arial;
+        font-size: 12px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    .suggestions li {
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .suggestions li:hover {
+        background-color: #f7f7f7;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <input type="text" id="search" name="search" placeholder="Type to search..." onkeyup="submitForm(event)">
+        </div>
+        <div id="suggestions" class="suggestions">
+            <ul>
+                <li>Honda</li>
+                <li>Toyota</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const models = [
+            'Honda Accord',
+            'Honda CRV',
+            'Honda Pilot',
+            'Toyota Camry',
+            'Honda Civic',
+            'Toyota Corolla',
+            'Ford EcoSport',
+            'Envision',
+            'Ford Fit',
+            'Highlander',
+            'Insight',
+            'Ford Kona',
+            'Odyssey',
+            'Toyota RAV4',
+            'Sedan',
+            'Solara',
+            'Tacoma',
+            'Tundra',
+            'Venza',
+            'Wrangler',
+            'X1',
+            'X5',
+            'X6',
+            'X7',
+            'Yaris',
+            'Z4'
+        ];
+
+        function generateSuggestions(cars) {
+            const options = [];
+            var ulElement = document.createElement('ul');
+            cars.forEach(function(car) {
+                const liElement = document.createElement('li');
+                liElement.textContent = car;
+                ulElement.appendChild(liElement);
+            });
+
+            document.getElementById('suggestions').innerHTML = '';
+            document.getElementById('suggestions').appendChild(ulElement);
+        }
+
+        generateSuggestions(models);
+
+        function submitForm(e) {
+            e.preventDefault();
+            var searchText = document.getElementById('search').value;
+            console.log(searchText);
+            if (searchText && searchText.length > 0) {
+                var filteredModels = models.filter(function(model) {
+                    return model.toLowerCase().includes(searchText.toLowerCase());
+                });
+    
+                generateSuggestions(filteredModels);
+                document.getElementById('suggestions').style.display = 'block';
+            } else {
+                document.getElementById('suggestions').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
