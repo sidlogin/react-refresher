@@ -14,7 +14,7 @@ function Search({ onSearch, term }) {
     const timeoutId = setTimeout(() => {
         setDebouncedValue(inputValue);
         onSearch(debouncedInputValue);
-      }, 50);
+      }, 100);
       return () => {
         clearTimeout(timeoutId);
       }
