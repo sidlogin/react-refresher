@@ -3,7 +3,7 @@ import { memo } from'react';
 import './Navigation.css';
 
 const Navigation = () => {
-    console.log('navigation');
+    // console.log('navigation');
     return (
         <>
             <div className="links">
@@ -12,6 +12,7 @@ const Navigation = () => {
                 <Link to="/memo">Memo</Link>
                 <Link to="/todo">Todo Form</Link>
                 <Link to="/search">Search</Link>
+                <Link to="/callback">Callback</Link>
             </div>
         </>
     )

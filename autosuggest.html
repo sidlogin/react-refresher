@@ -9,6 +9,7 @@
     .container {
         width: 800px;
         margin: 0 auto;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .form-box {
@@ -22,11 +23,12 @@
     .form-box input {
         width: 95%;
         padding: 10px;
-        font-size: 16px;
+        font-size: 12px;
         border: none;
         border-radius: 3px;
         outline: none;
         transition: border-color 0.3s;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .suggestions {
@@ -59,7 +61,8 @@
 <body>
     <div class="container">
         <div class="form-box">
-            <input type="text" id="search" name="search" placeholder="Type to search..." onkeyup="submitForm(event)">
+            <input type="text" id="search" name="search" placeholder="Type to search..." onkeyup="submitForm(event)" autocomplete="off">
+            <button type="submit" onclick="submitForm(event)">Search</button>
         </div>
         <div id="suggestions" class="suggestions">
             <ul>
@@ -100,15 +103,19 @@
 
         function generateSuggestions(cars) {
             const options = [];
-            var ulElement = document.createElement('ul');
+            var ul = document.createElement('ul');
             cars.forEach(function(car) {
-                const liElement = document.createElement('li');
-                liElement.textContent = car;
-                ulElement.appendChild(liElement);
+                const li = document.createElement('li');
+                li.textContent = car;
+                li.addEventListener('click', function(e) {
+                    document.getElementById('search').value = car;
+                    document.getElementById('suggestions').style.display = 'none';
+                });
+                ul.appendChild(li);
             });
 
             document.getElementById('suggestions').innerHTML = '';
-            document.getElementById('suggestions').appendChild(ulElement);
+            document.getElementById('suggestions').appendChild(ul);
         }
 
         generateSuggestions(models);

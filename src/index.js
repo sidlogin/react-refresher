@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Callback from './components/Callback/Callback';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
           <Route path="/memo" element={<Memo />} />
           <Route path="/todo" element={<TodoList />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/callback" element={<Callback />} />
           <Route path="*" element={<h1>404</h1>} />
         </Route>
         <Route path="*" element={<h1>404</h1>} />
